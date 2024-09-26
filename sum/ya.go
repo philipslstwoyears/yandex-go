@@ -5,7 +5,7 @@ import (
 	"unicode/utf8"
 )
 
-var ErrInvalidUTF8 = errors.New("invalid utf8")
+var ErrInvalidUT"invalid utf8")
 
 func GetUTFLength(input []byte) (int, error) {
 	if !utf8.Valid(input) {
