@@ -1,16 +1,11 @@
 package main
 
-import (
-	"errors"
-	"unicode/utf8"
-)
+import "fmt"
 
-var ErrInvalidUT"invalid utf8")
-
-func GetUTFLength(input []byte) (int, error) {
-	if !utf8.Valid(input) {
-		return 0, ErrInvalidUTF8
+func main() {
+	var number int
+	fmt.Scanf("%d", &number)
+	numberR := rune(number)
+	if numberR == rune(0) {
 	}
-
-	return utf8.RuneCount(input), nil
 }

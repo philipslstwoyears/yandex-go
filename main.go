@@ -1,14 +1,26 @@
 package main
 
 import (
+	"encoding/json"
+	"fmt"
+	"log"
+	"net/http"
 	"time"
 )
 
-func NextWorkday(start time.Time) time.Time {
-	if start.Weekday() == time.Friday {
-		return start.Add(3 * 24 * time.Hour)
-	} else if start.Weekday() == time.Saturday {
-		return start.Add(2 * 24 * time.Hour)
+//type HelloResponse struct {
+//	name string `json:"name"`
+//}
+
+func HelloHandler(w http.ResponseWriter, r *http.Request) {
+	name := r.URL.Query().Get("name")
+	if name == "" {
+		return
 	}
-	return start.AddDate(0, 0, 1)
+	str := "name" + name
+	json.Marshal([]byte(str))
+	w.Header().Set("Content-Type", "application/json")
+	w.Write([]byte(str))
+	w.WriteHeader(http.StatusOK)
+	log.Println("&s &S", time.Now().Format("2006/01/02 15:04:05"), fmt.Sprintf(`{"name":"%s"}`, name))
 }
