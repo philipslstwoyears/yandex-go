@@ -1,7 +1,17 @@
 package main
 
-import "fmt"
+import (
+	"encoding/json"
+	"fmt"
+	"log"
+	"net/http"
+	"time"
+)
 
-func main() {
-	fmt.Println("Hello, Yandex Lyceum!")
+//type HelloResponse struct {
+//	name string `json:"name"`
+//}
+
+func main () {
+	fmt.Println("Hello, Yandex Lyceum, HELLO WORLD!")
 }
